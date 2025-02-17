@@ -28,6 +28,8 @@ function d {
     }
 }
 
+Set-Alias -Name dev -Value d
+
 # npm run build
 function b {
     param(
@@ -42,6 +44,9 @@ function b {
         nr "dev:$projectName"
     }
 }
+
+Set-Alias -Name build -Value b
+
 
 # s
 # nr serve / nr start 
