@@ -30,6 +30,23 @@ function d {
 
 Set-Alias -Name dev -Value d
 
+# npm run watch
+function w {
+    param(
+        [string]$projectName  # projectName 是可选参数
+    )
+
+    # 如果没有提供 projectName 参数，执行 nr watch
+    if (-not $projectName) {
+        nr watch
+    } else {
+        # 如果提供了 projectName，执行 nr watch:$projectName
+        nr "watch:$projectName"
+    }
+}
+
+Set-Alias -Name watch -Value w
+
 # npm run build
 function b {
     param(
