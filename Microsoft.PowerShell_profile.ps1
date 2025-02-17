@@ -126,6 +126,13 @@ function go {
   git remote -v
 }
 
+
+function cleanup {
+    del .\package-lock.json, .\bun.lockb, .\pnpm-lock.yaml -ErrorAction SilentlyContinue
+    Remove-Item -Recurse -Force .\node_modules -ErrorAction SilentlyContinue
+}
+
+
 # 常用目录
 function fork {
     Set-Location D:\project\fork
