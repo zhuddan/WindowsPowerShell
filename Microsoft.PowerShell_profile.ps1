@@ -123,27 +123,27 @@ function go {
 
 # 常用目录
 function fork {
- cd D:\project\fork
+    Set-Location D:\project\fork
 }
 
 function star {
- cd D:\project\star
+ Set-Location D:\project\star
 }
 
 function temp {
- cd D:\project\temp
+    Set-Location D:\project\temp
 }
 
 function workspace {
- cd D:\project\workspace
+    Set-Location D:\project\workspace
 }
 
 function zhuddan {
- cd D:\project\zhuddan
+    Set-Location D:\project\zhuddan
 }
 
 function zd {
-  cd %USERPROFILE%
+    Set-Location %USERPROFILE%
 }
 
 # . $PROFILE
