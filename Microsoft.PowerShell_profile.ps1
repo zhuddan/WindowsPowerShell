@@ -106,6 +106,11 @@ function g {
     }
 }
 
+# git
+function go {
+  git remote -v
+}
+
 # 常用目录
 function fork {
  cd D:\project\fork
