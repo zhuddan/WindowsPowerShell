@@ -14,23 +14,33 @@ Remove-Item Alias:ni -Force -ErrorAction Ignore
 
 # 别名
 # npm run dev
-function d { nr dev }
-function d: {
+function d {
     param(
-        [Parameter(ValueFromRemainingArguments=$true)]
-        [string]$projectName
+        [string]$projectName  # projectName 是可选参数
     )
-    nr "dev:$projectName"
+
+    # 如果没有提供 projectName 参数，执行 nr dev
+    if (-not $projectName) {
+        nr dev
+    } else {
+        # 如果提供了 projectName，执行 nr dev:$projectName
+        nr "dev:$projectName"
+    }
 }
 
 # npm run build
-function b { nr build }
-function b: {
+function b {
     param(
-        [Parameter(ValueFromRemainingArguments=$true)]
-        [string]$projectName
+        [string]$projectName  # projectName 是可选参数
     )
-    nr "build:$projectName"
+
+    # 如果没有提供 projectName 参数，执行 nr build
+    if (-not $projectName) {
+        nr build
+    } else {
+        # 如果提供了 projectName，执行 nr build:$projectName
+        nr "dev:$projectName"
+    }
 }
 
 # s
@@ -135,5 +145,8 @@ function zhuddan {
 function zd {
   cd %USERPROFILE%
 }
-# . $PROFILE
 
+# . $PROFILE
+function reload {
+  . $PROFILE
+}
