@@ -104,6 +104,11 @@ g https://github.com/microsoft/TypeScript ts # git clone https://github.com/micr
  cleanup #  清理缓存
 ```
 
+- o (打开当前目录)
+```shell
+ o # start .
+```
+
 参考
 - [ni](https://github.com/antfu-collective/ni)
 - [http-server](https://github.com/http-party/http-server)

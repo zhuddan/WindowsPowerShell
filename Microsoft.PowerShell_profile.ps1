@@ -184,6 +184,10 @@ function cleanup {
     Remove-Item -Recurse -Force .\node_modules -ErrorAction SilentlyContinue
 }
 
+# 打开当前目录
+function o {
+    start .
+}
 
 # 常用目录
 function fork {
@@ -191,7 +195,7 @@ function fork {
 }
 
 function star {
- Set-Location D:\project\star
+    Set-Location D:\project\star
 }
 
 function temp {
