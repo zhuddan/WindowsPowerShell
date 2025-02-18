@@ -191,23 +191,23 @@ function o {
 
 # 常用目录
 function fork {
-    Set-Location D:\project\fork
+    Set-Location D:\projects\fork
 }
 
 function star {
-    Set-Location D:\project\star
+    Set-Location D:\projects\star
 }
 
 function temp {
-    Set-Location D:\project\temp
+    Set-Location D:\projects\temp
 }
 
 function workspace {
-    Set-Location D:\project\workspace
+    Set-Location D:\projects\workspace
 }
 
 function zhuddan {
-    Set-Location D:\project\zhuddan
+    Set-Location D:\projects\zhuddan
 }
 
 function zd {
