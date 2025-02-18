@@ -79,25 +79,29 @@
  server a # nr server:a
  server b # nr server:b
 ```
-- hs 
+- hs (基于`http-server`的web服务容器，可选参数`path`为服务路径)
 ```shell
  hs # http-server $output -c-0 --cors
  hs dist # http-server dist $output -c-0 --cors # 此时 http-server 入口为 dist
 ```
 
-- g
+- vs (使用`vscode`打开当前目录, 若存在`package.json`, 自动使用`ni`下载依赖)
+``` shell
+ vs # vscode 打开当前目录并且自动下载依赖
+```
+
+- g (`git clone`的简化操作, 参数`repoUrl`为仓库地址, 可选参数`dir`为克隆地址 )
 ``` shell
 g https://github.com/microsoft/TypeScript # git clone https://github.com/microsoft/TypeScript
 g https://github.com/microsoft/TypeScript ts # git clone https://github.com/microsoft/TypeScript ts
 ```
-- go
+- go (`git remote -v`别名)
 ```shell
  go # git remote -v
 ```
-- cleanup
+- cleanup (删除所有`node_modules`依赖和依赖锁定文件`package-lock.json`, `yarn.lockb`, `bun.lockb`, `.pnpm-lock.yaml`)
 ```shell
- cleanup # del .\package-lock.json, .\bun.lockb, .\pnpm-lock.yaml -ErrorAction SilentlyContinue
-    Remove-Item -Recurse -Force .\node_modules -ErrorAction SilentlyContinue
+ cleanup #  清理缓存
 ```
 
 参考

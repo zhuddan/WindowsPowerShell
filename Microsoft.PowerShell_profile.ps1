@@ -126,12 +126,12 @@ Set-Alias -Name serve -Value s
 #  http-server
 function hs {
     param(
-        [string]$output 
+        [string]$path 
     )
-    if (-not $output) {
+    if (-not $path) {
         http-server -c-0 --cors
     } else {
-        http-server $output -c-0 --cors
+        http-server $path -c-0 --cors
     }
 }
 
@@ -180,7 +180,7 @@ function go {
 
 # 清理缓存
 function cleanup {
-    del .\package-lock.json, .\bun.lockb, .\pnpm-lock.yaml -ErrorAction SilentlyContinue
+    del .\package-lock.json, .\yarn.lock, .\bun.lockb, .\pnpm-lock.yaml -ErrorAction SilentlyContinue
     Remove-Item -Recurse -Force .\node_modules -ErrorAction SilentlyContinue
 }
 
