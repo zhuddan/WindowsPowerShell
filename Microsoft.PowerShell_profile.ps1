@@ -64,16 +64,13 @@ function b {
 
 Set-Alias -Name build -Value b
 
-
 # s
 # nr serve / nr start 
 function s {
     param (
-        [Parameter(ValueFromRemainingArguments = $true)]
-        [string]$command = "serve",  # 默认要查找的命令（你可以调整为其它命令）
-        [string]$fallbackCommand = "start"  # 第二个备用命令
+        [string]$projectName  # projectName 参数用于确定要执行的命令
     )
-    
+
     # 检查当前目录是否有 package.json 文件
     if (Test-Path "package.json") {
         # 读取 package.json 文件
@@ -81,17 +78,40 @@ function s {
         
         # 检查 scripts 字段是否存在
         if ($packageJson.scripts) {
-            # 检查命令是否存在于 scripts 中
+            # 默认命令，如果没有提供 projectName，默认执行 serve 或 start
+            $defaultCommand = if (-not $projectName) { "serve" } else { "serve:$projectName" }
+
+            # 先查找 serve 命令
             $foundCommand = $packageJson.scripts.PSObject.Properties.Name |
-                            Where-Object { $_ -match "^$command|^$fallbackCommand" } | 
+                            Where-Object { $_ -eq $defaultCommand } |
                             Select-Object -First 1
 
-            # 如果找到命令则执行
+            # 如果没有找到 serve 命令，尝试查找 start 命令
+            if (-not $foundCommand) {
+                $foundCommand = $packageJson.scripts.PSObject.Properties.Name |
+                                Where-Object { $_ -eq "start" } |
+                                Select-Object -First 1
+            }
+
+            # 如果没有找到任何命令，检查是否有 serve:xxx 或 start:xxx 命令
+            if (-not $foundCommand) {
+                $foundCommand = $packageJson.scripts.PSObject.Properties.Name |
+                                Where-Object { $_ -eq "serve:$projectName" } |
+                                Select-Object -First 1
+            }
+
+            if (-not $foundCommand) {
+                $foundCommand = $packageJson.scripts.PSObject.Properties.Name |
+                                Where-Object { $_ -eq "start:$projectName" } |
+                                Select-Object -First 1
+            }
+
+            # 如果找到命令，则执行
             if ($foundCommand) {
                 Write-Host "Found command '$foundCommand'. Running 'nr $foundCommand'..."
                 nr $foundCommand
             } else {
-                Write-Host "No matching command ('serve', 'start', or '$command') found in scripts."
+                Write-Host "No matching command ('serve', 'start', or 'serve:$projectName', 'start:$projectName') found in scripts."
             }
         } else {
             Write-Host "No scripts section found in package.json."
@@ -100,6 +120,21 @@ function s {
         Write-Host "No package.json found in the current directory."
     }
 }
+
+Set-Alias -Name serve -Value s
+
+#  http-server
+function hs {
+    param(
+        [string]$output 
+    )
+    if (-not $output) {
+        http-server -c-0 --cors
+    } else {
+        http-server $output -c-0 --cors
+    }
+}
+
 
 # vscode 打开当前目录并且自动下载依赖
 function vs {
@@ -143,7 +178,7 @@ function go {
   git remote -v
 }
 
-
+# 清理缓存
 function cleanup {
     del .\package-lock.json, .\bun.lockb, .\pnpm-lock.yaml -ErrorAction SilentlyContinue
     Remove-Item -Recurse -Force .\node_modules -ErrorAction SilentlyContinue

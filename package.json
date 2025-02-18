@@ -1,0 +1,25 @@
+{
+  "name": "windowspowershell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo \"dev test\" && exit 1",
+    "dev:a": "echo \"dev:a test\" && exit 1",
+    "dev:b": "echo \"dev:b test\" && exit 1",
+    "build": "echo \"build test\" && exit 1",
+    "build:a": "echo \"build:a test\" && exit 1",
+    "build:b": "echo \"build:b test\" && exit 1",
+    "watch": "echo \"watch test\" && exit 1",
+    "watch:a": "echo \"watch:a test\" && exit 1",
+    "watch:b": "echo \"watch:b test\" && exit 1",
+    "start": "echo \"start test\" && exit 1",
+    "start:a": "echo \"start:a test\" && exit 1",
+    "start:b": "echo \"start:b test\" && exit 1",
+    "serve": "echo \"serve test\" && exit 1",
+    "serve:a": "echo \"serve:a test\" && exit 1",
+    "serve:b": "echo \"serve:b test\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
