@@ -3,22 +3,25 @@
 ## 使用
 1. 复制 `Microsoft.PowerShell_profile.ps1`的内容 到 `你的配置文件内` 即可
 
-使用 `vscode` 打开你的配置
-```shell
- code $PROFILE
-```
+    使用 `vscode` 打开你的配置
+    ```shell
+    code $PROFILE
+    ```
 
-或者使用 `txt` 打开
-```shell
- notepad $PROFILE
-```
+    或者使用 `txt` 打开
+    ```shell
+    notepad $PROFILE
+    ```
 
-2. 保存之后需要重载你的配置
-```shell
- . $PROFILE
-```
+2. 复制[Microsoft.PowerShell_profile.ps1](https://github.com/zhuddan/WindowsPowerShell/blob/master/Microsoft.PowerShell_profile.ps1)内容到你的配置文件中并且保存。
 
-然后你就可以愉快玩耍了
+
+3. 保存之后需要重载你的配置
+    ```shell
+    . $PROFILE
+    ```
+
+然后你就可以愉快玩耍了, 记得重新开口终端窗口。
 
 ## 命令/别名
 
