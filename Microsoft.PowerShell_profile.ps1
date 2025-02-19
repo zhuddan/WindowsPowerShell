@@ -155,18 +155,19 @@ function hs {
 
 # vscode 打开当前目录并且自动下载依赖
 function vs {
+
+    # 使用 VS Code 打开当前目录
+    Write-Host "Opening VS Code..."
+    code .
+    
     # 检查当前目录是否有 package.json 文件
     if (Test-Path "package.json") {
         # 如果有 package.json，执行 ni 安装依赖
         Write-Host "package.json found. Installing dependencies using ni..."
         ni
-        # 安装完成后使用 VS Code 打开当前目录
-        Write-Host "Opening VS Code..."
-        code .
+
     } else {
-        # 如果没有 package.json，直接打开 VS Code
-        Write-Host "No package.json found. Opening VS Code..."
-        code .
+        Write-Host "No package.json found."
     }
 }
 
@@ -235,3 +236,4 @@ function zd {
 # function reload {
 #   . $PROFILE
 # }
+

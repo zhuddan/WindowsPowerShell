@@ -18,7 +18,10 @@
     "start:b": "echo \"start:b test\" && exit 1",
     "serve": "echo \"serve test\" && exit 1",
     "serve:a": "echo \"serve:a test\" && exit 1",
-    "serve:b": "echo \"serve:b test\" && exit 1"
+    "serve:b": "echo \"serve:b test\" && exit 1",
+    "test": "echo \"test test\" && exit 1",
+    "test:a": "echo \"test:a test\" && exit 1",
+    "test:b": "echo \"test:b test\" && exit 1"
   },
   "author": "",
   "license": "ISC"
