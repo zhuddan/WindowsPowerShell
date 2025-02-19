@@ -45,7 +45,17 @@
  watch b # nr watch:b
 ```
 
-- w/build
+- t/test
+```shell
+ t  # nr test
+ t a # nr test:a
+ t b # nr test:b
+ test  # nr test
+ test a # nr test:a
+ test b # nr test:b
+```
+
+- b/build
 ```shell
  b  # nr build
  b a # nr build:a

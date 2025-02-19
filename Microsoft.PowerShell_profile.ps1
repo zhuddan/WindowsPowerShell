@@ -47,6 +47,23 @@ function w {
 
 Set-Alias -Name watch -Value w
 
+# npm run test
+function t {
+    param(
+        [string]$projectName  # projectName 是可选参数
+    )
+
+    # 如果没有提供 projectName 参数，执行 nr test
+    if (-not $projectName) {
+        nr test
+    } else {
+        # 如果提供了 projectName，执行 nr test:$projectName
+        nr "test:$projectName"
+    }
+}
+
+Set-Alias -Name test -Value t
+
 # npm run build
 function b {
     param(
@@ -214,7 +231,7 @@ function zd {
     Set-Location %USERPROFILE%
 }
 
-# . $PROFILE
-function reload {
-  . $PROFILE
-}
+# # . $PROFILE
+# function reload {
+#   . $PROFILE
+# }
