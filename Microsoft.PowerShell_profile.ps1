@@ -75,7 +75,7 @@ function b {
         nr build
     } else {
         # 如果提供了 projectName，执行 nr build:$projectName
-        nr "dev:$projectName"
+        nr "build:$projectName"
     }
 }
 
