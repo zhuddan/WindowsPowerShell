@@ -138,6 +138,11 @@ function s {
     }
 }
 
+# 特殊的 npm script 
+function tag {
+    nr tag
+}
+
 Set-Alias -Name serve -Value s
 
 #  http-server
@@ -201,6 +206,8 @@ function cleanup {
     del .\package-lock.json, .\yarn.lock, .\bun.lockb, .\pnpm-lock.yaml -ErrorAction SilentlyContinue
     Remove-Item -Recurse -Force .\node_modules -ErrorAction SilentlyContinue
 }
+
+
 
 # 打开当前目录
 function o {
