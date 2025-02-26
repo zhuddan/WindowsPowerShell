@@ -143,6 +143,16 @@ function tag {
     nr tag
 }
 
+# 发布公共包
+function pub {
+   npm publish --access public
+}
+
+# 发布私有包
+function pubres {
+   npm publish --access restricted
+}
+
 Set-Alias -Name serve -Value s
 
 #  http-server
