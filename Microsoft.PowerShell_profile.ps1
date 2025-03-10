@@ -140,7 +140,17 @@ function s {
 
 # 特殊的 npm script 
 function tag {
-    nr tag
+    param(
+        [string]$projectName  # projectName 是可选参数
+    )
+
+    # 如果没有提供 projectName 参数，执行 nr tag
+    if (-not $projectName) {
+        nr tag
+    } else {
+        # 如果提供了 projectName，执行 nr tag:$projectName
+        nr "tag:$projectName"
+    }
 }
 
 # 发布公共包
