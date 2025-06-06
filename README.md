@@ -1,7 +1,6 @@
 [![Project Status: Archived](https://img.shields.io/badge/status-archived-red.svg)](https://github.com/your-org/new-repo)
 
-> **This project has been archived. Please use the new repository: [your-org/new-repo](https://github.com/your-org/new-repo)](https://github.com/zhuddan/cmd-config)**
-
+> **This project has been archived. Please use the new repository: [https://github.com/zhuddan/cmd-config](https://github.com/zhuddan/cmd-config)**
 
 
 # Microsoft.PowerShell_profile.ps1 配置
